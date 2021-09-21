@@ -11,11 +11,11 @@ import java.util.Optional;
 
 public class Queen extends Piece {
     public Queen(Team team) {
-        super(PieceType.QUEEN, team, 9);
+        super(PieceType.QUEEN, team, 9, null);
     }
     public Queen(Team team, BoardSquare boardSquare) {
-        super(PieceType.QUEEN, null, 9);
-        setCurrentPosition(boardSquare);
+        super(PieceType.QUEEN, team, 9, boardSquare);
+
     }
 
     @Override

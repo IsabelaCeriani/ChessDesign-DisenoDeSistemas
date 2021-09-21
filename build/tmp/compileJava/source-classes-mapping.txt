@@ -1,54 +1,56 @@
-australchess/entities/MoveTracker.java
- australchess.entities.MoveTracker
+australchess/cli/BoardPrinter.java
+ australchess.cli.BoardPrinter
 australchess/cli/ParsedPositionParser.java
  australchess.cli.ParsedPositionParser
-australchess/entities/standardChessEntities/pieces/Knight.java
- australchess.entities.standardChessEntities.pieces.Knight
-australchess/entities/standardChessEntities/pieces/Queen.java
- australchess.entities.standardChessEntities.pieces.Queen
+australchess/cli/BoardPosition.java
+ australchess.cli.BoardPosition
+australchess/enums/Status.java
+ australchess.enums.Status
 australchess/cli/ParsedPosition.java
  australchess.cli.ParsedPosition
+australchess/cli/DefaultSomethingClass.java
+ australchess.cli.DefaultSomethingClass
+australchess/cli/DefaultBoardPrinter.java
+ australchess.cli.DefaultBoardPrinter
+australchess/enums/PieceType.java
+ australchess.enums.PieceType
+australchess/enums/Team.java
+ australchess.enums.Team
+australchess/cli/SomethingClass.java
+ australchess.cli.SomethingClass
+australchess/enums/BoardType.java
+ australchess.enums.BoardType
+australchess/entities/Player.java
+ australchess.entities.Player
+australchess/entities/MoveTracker.java
+ australchess.entities.MoveTracker
+australchess/entities/standardChessEntities/BoardSquare.java
+ australchess.entities.standardChessEntities.BoardSquare
+australchess/entities/BoardFactory.java
+ australchess.entities.BoardFactory
+australchess/entities/standardChessEntities/Piece.java
+ australchess.entities.standardChessEntities.Piece
+australchess/entities/standardChessEntities/pieces/Queen.java
+ australchess.entities.standardChessEntities.pieces.Queen
+australchess/entities/standardChessEntities/pieces/King.java
+ australchess.entities.standardChessEntities.pieces.King
+australchess/entities/standardChessEntities/pieces/Bishop.java
+ australchess.entities.standardChessEntities.pieces.Bishop
 australchess/entities/Move.java
  australchess.entities.Move
 australchess/entities/Game.java
  australchess.entities.Game
-australchess/entities/standardChessEntities/pieces/Pawn.java
- australchess.entities.standardChessEntities.pieces.Pawn
+australchess/entities/standardChessEntities/pieces/Knight.java
+ australchess.entities.standardChessEntities.pieces.Knight
 australchess/entities/Board.java
  australchess.entities.Board
 australchess/entities/standardChessEntities/pieces/Rook.java
  australchess.entities.standardChessEntities.pieces.Rook
-australchess/entities/standardChessEntities/StandardMoveTracker.java
- australchess.entities.standardChessEntities.StandardMoveTracker
-australchess/entities/BoardFactory.java
- australchess.entities.BoardFactory
-australchess/cli/App.java
- australchess.cli.App
-australchess/cli/BoardPrinter.java
- australchess.cli.BoardPrinter
-australchess/cli/SomethingClass.java
- australchess.cli.SomethingClass
-australchess/entities/Player.java
- australchess.entities.Player
-australchess/entities/standardChessEntities/BoardSquare.java
- australchess.entities.standardChessEntities.BoardSquare
+australchess/entities/standardChessEntities/pieces/Pawn.java
+ australchess.entities.standardChessEntities.pieces.Pawn
 australchess/entities/standardChessEntities/StandardBoard.java
  australchess.entities.standardChessEntities.StandardBoard
-australchess/entities/standardChessEntities/Piece.java
- australchess.entities.standardChessEntities.Piece
-australchess/entities/standardChessEntities/pieces/King.java
- australchess.entities.standardChessEntities.pieces.King
-australchess/enums/Status.java
- australchess.enums.Status
-australchess/cli/BoardPosition.java
- australchess.cli.BoardPosition
-australchess/cli/DefaultSomethingClass.java
- australchess.cli.DefaultSomethingClass
-australchess/enums/PieceType.java
- australchess.enums.PieceType
-australchess/entities/standardChessEntities/pieces/Bishop.java
- australchess.entities.standardChessEntities.pieces.Bishop
-australchess/enums/Team.java
- australchess.enums.Team
-australchess/cli/DefaultBoardPrinter.java
- australchess.cli.DefaultBoardPrinter
+australchess/entities/standardChessEntities/StandardMoveTracker.java
+ australchess.entities.standardChessEntities.StandardMoveTracker
+australchess/cli/App.java
+ australchess.cli.App

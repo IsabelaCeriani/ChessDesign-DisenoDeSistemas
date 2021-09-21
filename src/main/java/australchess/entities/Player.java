@@ -8,17 +8,20 @@ import java.util.List;
 public class Player {
 
     private String name;
-    private String colorTeam;
     private Team team;
-    private List<Piece> piecesEaten;
+//    private List<Piece> piecesEaten;
+
+
+    public Player(String name, Team team) {
+        this.name = name;
+        this.team = team;
+    }
 
     public String getName() {
         return name;
     }
 
-    public String getColorTeam() {
-        return colorTeam;
-    }
+
 
     public Team getTeam() {
         return team;
@@ -28,15 +31,11 @@ public class Player {
         this.name = name;
     }
 
-    public void setColorTeam(String colorTeam) {
-        this.colorTeam = colorTeam;
-    }
+
 
     public void setTeam(Team team) {
         this.team = team;
     }
 
-    public void eatPiece(Piece piece){
-        piecesEaten.add(piece);
-    }
+
 }

@@ -1,8 +1,17 @@
 package australchess.cli;
 
+import australchess.entities.Board;
+import australchess.entities.Game;
+import australchess.entities.MoveTracker;
+import australchess.entities.Player;
+import australchess.entities.standardChessEntities.StandardBoard;
+import australchess.entities.standardChessEntities.StandardMoveTracker;
+import australchess.enums.Team;
 import com.github.lalyos.jfiglet.FigletFont;
+import jdk.jshell.spi.SPIResolutionException;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
@@ -15,6 +24,16 @@ public class App {
         printHeader();
         final String firstPlayerId = askForString("Name of player that moves white: ");
         final String secondPlayerId = askForString("Name of player that moves black: ");
+        final Player player1 = new Player(firstPlayerId, Team.WHITE);
+        final Player player2 = new Player(secondPlayerId, Team.BLACK);
+
+        final List<Player> players = new ArrayList<>();
+        players.add(player1);
+        players.add(player2);
+        final Board board = new StandardBoard();
+        final Game game = new Game(players, board, player1);
+        final MoveTracker moveTracker = new StandardMoveTracker(game);
+
         System.out.println();
         System.out.println();
 
@@ -24,7 +43,7 @@ public class App {
             printBoard(boardPrinter);
             final ParsedPosition positionFrom = askForPosition("Enter position of the piece you want to move");
             final ParsedPosition positionTo = askForPosition("Enter position of cell you want to move it to");
-            move(positionFrom, positionTo);
+            moveTracker.movePiece(game.getCurrentTurn(), game.getBoard().getSquare(positionFrom.getX(), positionFrom.getY()).getPiece(), game.getBoard().getSquare(positionTo.getX(), positionTo.getY()));
             System.out.println();
             System.out.println();
         }
@@ -37,9 +56,7 @@ public class App {
         System.out.println(boardAsString);
     }
 
-    private static void move(ParsedPosition from, ParsedPosition to) {
-        // TODO implement!
-    }
+
 
     private static String playerToMove() {
         return "Someone"; //TODO Implement!
@@ -51,11 +68,13 @@ public class App {
 
     private static ParsedPosition askForPosition(String question) {
         System.out.println(question);
-        System.out.print("Enter in format -> (number,letter): ");
         Scanner scanner = new Scanner(System.in);
-        String positionAsString = scanner.nextLine();
-        return ParsedPositionParser.parse(positionAsString)
-                .orElseGet(() -> askForPosition("The position " + positionAsString + " is invalid. Please enter a new one"));
+        System.out.println("Enter x value");
+        int x = scanner.nextInt();
+        System.out.println("Enter y value");
+        int y = scanner.nextInt();
+        return new ParsedPosition(x, y);
+
     }
 
     private static void printCurrentPlayerTurn() {

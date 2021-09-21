@@ -1,0 +1,2 @@
+australchess/cli/PieceMovementTester.java
+ australchess.cli.PieceMovementTester

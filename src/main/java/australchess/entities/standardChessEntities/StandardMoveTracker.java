@@ -13,30 +13,32 @@ import java.util.Optional;
 
 public class StandardMoveTracker implements MoveTracker {
 
-    private List<Move> gameMoves;
+
     private Game game;
 
     public StandardMoveTracker(Game game) {
-        this.gameMoves = new ArrayList<>();
         this.game = game;
+        game.setMoveTracker(this);
     }
 
     @Override
     public boolean canMovePiece(Piece piece, BoardSquare destination){
-        if(destination.hasPiece() && piece.getTeam()==destination.getPiece().getTeam()) return false;
+        if(!(destination.getPiece()==null) && piece.getTeam()==destination.getPiece().getTeam()) return false;
         return true;
 
     }
     @Override
     public void movePiece(Player player, Piece piece, BoardSquare destination){
         Optional<Move> move = piece.move(destination, game.getBoard());
-        if(!move.isPresent()) System.out.println("Could not move piece");
+//        if(move==null) throw new RuntimeException("Cannot move there");
+        if(!move.isPresent()) throw new RuntimeException("Cannot move there");
 
         if (isCheck(move.get())) makeCheck(move.get());
         if(!canMovePiece(piece, destination)) throw new IllegalArgumentException("Cannot move there");
-        if(destination.hasPiece() && piece.getTeam()!=piece.getTeam()) piece.eat(destination, piece, move.get().getPieceKilled());
+        if(!(destination.getPiece()==null) && piece.getTeam()!=piece.getTeam()) piece.eat(destination, piece, move.get().getPieceKilled());
 
-        gameMoves.add(move.get());
+        (game).getGameMoves().add(move.get());
+//        game.nextTurn();
     }
 
 //    @Override
@@ -47,17 +49,23 @@ public class StandardMoveTracker implements MoveTracker {
 
     @Override
     public boolean isCheck(Move move) {
-        if(!move.getPieceKilled().equals(null) && move.getPieceKilled().getPieceType() == PieceType.KING) return true;
+        if(!(move.getPieceKilled()==null) && move.getPieceKilled().getPieceType() == PieceType.KING) return true;
         return false;
     }
 
     @Override
     public void makeCheck(Move move) {
             move.setWasCheck(true);
-            gameMoves.add(move);
+            game.getGameMoves().add(move);
+//            game.nextTurn();
     }
 
-//    @Override
+    public void setGame(Game game) {
+        this.game = game;
+    }
+
+
+    //    @Override
 //    public void eatPiece(Player player, Piece piece, BoardSquare destination) {
 //        Move move = new Move(player, piece.getCurrentPosition(), destination, piece, destination.getPiece());
 //        piece.move(destination, game.getBoard());

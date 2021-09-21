@@ -11,12 +11,12 @@ import java.util.Optional;
 
 public class King extends Piece {
     public King(Team team) {
-        super(PieceType.KING, team, 0);
+        super(PieceType.KING, team, 0, null);
     }
 
     public King(Team team, BoardSquare boardSquare) {
-        super(PieceType.KING, null, 0);
-        setCurrentPosition(boardSquare);
+        super(PieceType.KING, null, 0, boardSquare);
+
     }
 
     @Override

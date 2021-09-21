@@ -24,17 +24,17 @@ public abstract class Piece {
     }
 
 
-    public Piece(PieceType pieceType, Team team, int points) {
+    public Piece(PieceType pieceType, Team team, int points, BoardSquare currentPosition) {
         this.pieceType = pieceType;
         this.team = team;
         this.points = points;
+        this.currentPosition = currentPosition;
+        currentPosition.setPiece(this);
         currentPosition.setHasPiece(true);
+
     }
 
-    public Piece(BoardSquare currentPosition) {
-      this.currentPosition = currentPosition;
-        currentPosition.setHasPiece(true);
-    }
+
 
 
     public Piece(Team team, BoardSquare currentPosition) {

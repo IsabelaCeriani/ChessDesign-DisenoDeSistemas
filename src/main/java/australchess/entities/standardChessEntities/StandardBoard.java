@@ -1,12 +1,14 @@
 package australchess.entities.standardChessEntities;
 
 import australchess.entities.Board;
+import australchess.entities.BoardFactory;
 import australchess.entities.standardChessEntities.pieces.*;
+import australchess.enums.BoardType;
 import australchess.enums.Team;
 
 import java.util.Queue;
 
-public class StandardBoard extends Board {
+public class StandardBoard extends Board  {
 
     public StandardBoard() {
         super(8, 8);
@@ -39,6 +41,7 @@ public class StandardBoard extends Board {
 
 
     }
+
 
 }
 

@@ -1,18 +1,21 @@
 package australchess.entities;
 
 import australchess.entities.standardChessEntities.BoardSquare;
+import australchess.enums.BoardType;
 
 public class Board {
 
     private BoardSquare[][] squares;
+    private BoardType boardType;
 
     public Board(int width, int height) {
         this.squares = new BoardSquare[width][height];
         for (int i = 0; i < width; i++) {
             for (int j = 0; j < height; j++) {
-                getSquares()[i][j]= new BoardSquare();
+                getSquares()[i][j]= new BoardSquare(i, j);
             }
         }
+        this.boardType = boardType;
     }
 
 

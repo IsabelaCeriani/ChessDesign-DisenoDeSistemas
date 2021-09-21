@@ -13,12 +13,12 @@ public class Knight extends Piece {
 
 
     public Knight(Team team) {
-        super(PieceType.KNIGHT, team, 3);
+        super(PieceType.KNIGHT, team, 3, null);
     }
 
     public Knight(Team team, BoardSquare boardSquare) {
-        super(PieceType.KNIGHT, null, 1);
-        setCurrentPosition(boardSquare);
+        super(PieceType.KNIGHT, team, 1, boardSquare);
+
     }
 
     @Override

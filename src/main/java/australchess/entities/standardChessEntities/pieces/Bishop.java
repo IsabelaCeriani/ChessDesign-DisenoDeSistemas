@@ -13,12 +13,12 @@ public class Bishop extends Piece {
 
 
     public Bishop(Team team) {
-        super(PieceType.BISHOP, team, 3);
+        super(PieceType.BISHOP, team, 3, null);
     }
 
     public Bishop(Team team, BoardSquare boardSquare) {
-        super(PieceType.BISHOP, null, 3);
-        setCurrentPosition(boardSquare);
+        super(PieceType.BISHOP, null, 3, boardSquare);
+
     }
 
     @Override

@@ -8,10 +8,23 @@ public class BoardSquare {
      private String color;
      private Piece piece;
      private Boolean hasPiece;
+     private Character yPosition;
 
+    public BoardSquare(int x, int y) {
+        this.x = x;
+        this.y = y;
+        this.hasPiece = false;
+    }
+
+    public BoardSquare(int x, int y, Piece piece) {
+        this.x = x;
+        this.y = y;
+        this.hasPiece = false;
+        this.piece = piece;
+    }
 
     public Boolean hasPiece() {
-        return hasPiece;
+        return this.piece==null;
     }
 
     public int getX() {

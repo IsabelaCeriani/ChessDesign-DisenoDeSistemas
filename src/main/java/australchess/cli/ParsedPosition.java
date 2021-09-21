@@ -6,18 +6,20 @@ import lombok.Getter;
 public  class ParsedPosition {
 
     private final  Integer number;
-    private final  Character letter;
+    private final  Integer letter;
 
-    public ParsedPosition(int parseInt, char charAt, Integer number, Character letter) {
+    public ParsedPosition(Integer number, Integer letter) {
         this.number = number;
         this.letter = letter;
     }
 
-    public Integer getNumber() {
+
+
+    public Integer getX() {
         return number;
     }
 
-    public Character getLetter() {
+    public Integer getY() {
         return letter;
     }
 

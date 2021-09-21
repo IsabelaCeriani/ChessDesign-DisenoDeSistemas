@@ -12,8 +12,8 @@ import java.util.Optional;
 public class Rook extends Piece {
 
     public Rook(Team team, BoardSquare boardSquare) {
-        super(PieceType.ROOK, team, 5);
-        setCurrentPosition(boardSquare);
+        super(PieceType.ROOK, team, 5, boardSquare);
+
     }
 
     @Override

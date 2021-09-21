@@ -1,8 +1,9 @@
 package australchess.entities;
 
+import australchess.entities.standardChessEntities.Piece;
 import australchess.enums.Status;
 
-import java.util.List;
+import java.util.*;
 
 public class Game {
 
@@ -11,14 +12,20 @@ public class Game {
     private Player currentTurn;
     private Board board;
     private Status status;
+    private List<Move> gameMoves;
+//    Queue<Player> turns;
 
-    public Game(List<Player> players, Board board, MoveTracker moveTracker, Player currentTurn) {
+    public Game(List<Player> players, Board board, Player firstTurn) {
         this.players = players;
-        this.currentTurn = currentTurn;
         this.board = board;
         status= Status.NOT_STARTED;
-        this.moveTracker = moveTracker;
-        this.currentTurn=currentTurn;
+        this.currentTurn=firstTurn;
+        this.gameMoves = new ArrayList<>();
+//        this.turns= new PriorityQueue<>();
+//        for (Player player: players){
+//            turns.add(player);
+//        }
+//        this.currentTurn = turns.peek();
     }
 
     public MoveTracker getMoveTracker() {
@@ -60,4 +67,23 @@ public class Game {
     public Status getStatus() {
         return status;
     }
+
+    public List<Move> getGameMoves() {
+        return gameMoves;
+    }
+
+    public void start(){
+        this.status=Status.ONGOING;
+    }
+    public void finish(){
+        this.status= Status.FINISHED;
+    }
+
+//    public void nextTurn() {
+//       if(!turns.isEmpty()) currentTurn=turns.peek();
+//        for (Player player: players){
+//            turns.add(player);
+//        }
+//    }
 }
+
